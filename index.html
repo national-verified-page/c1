@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SmartChoice</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f2f5;
+      color: #333;
+    }
+
+    /* ✅ Header Flex Layout */
+    header {
+      background-color: #1a73e8;
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .header-left {
+      flex: 1;
+      text-align: left;
+    }
+    .header-center {
+      flex: 2;
+      text-align: center;
+    }
+    .header-center input {
+      width: 60%;
+      padding: 0.4rem 0.8rem;
+      border: none;
+      border-radius: 20px;
+      font-size: 1rem;
+    }
+    .header-right {
+      flex: 1;
+      text-align: right;
+      font-size: 1.2rem;
+    }
+    .header-right i {
+      margin-left: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .header-right i:hover {
+      transform: scale(1.2);
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      max-width: 600px;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .product {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+    .product:hover {
+      transform: translateY(-5px);
+    }
+    .product img {
+      max-width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .product h3 {
+      margin: 0.8rem 0 0.5rem;
+    }
+    .product p {
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    .customizer {
+      background-color: white;
+      margin: 2rem;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .customizer h2 {
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .customizer label, .customizer input, .customizer select, .customizer button {
+      display: block;
+      width: 100%;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .customizer input, .customizer select {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .customizer button {
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      padding: 0.7rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .customizer button:hover {
+      background-color: #1558c0;
+    }
+
+    .preview {
+      background: #fff;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      border-radius: 10px;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .preview h3 {
+      margin-bottom: 1rem;
+    }
+    .preview .shirt-box {
+      position: relative;
+      width: 300px;
+      height: 350px;
+      margin: 0 auto;
+    }
+    .preview .shirt-box img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .preview-details {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #444;
+    }
+
+    .footer {
+      background-color: #1a73e8;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.5rem; }
+      .header-center input { width: 90%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ NEW HEADER -->
+  <header>
+    <div class="header-left">
+      <i class="fas fa-tshirt"></i> SmartChoice
+    </div>
+    <div class="header-center">
+      <input type="text" placeholder="Search for T-Shirts...">
+    </div>
+    <div class="header-right">
+      <i class="fas fa-bell"></i>
+      <i class="fas fa-shopping-cart"></i>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1><i class="fas fa-star"></i> Discover Your Perfect Style</h1>
+    <p>SmartChoice brings you a handpicked selection of modern, stylish T-shirts crafted with premium quality and minimalistic designs.</p>
+  </section>
+
+  <section class="products">
+  <div class="product">
+    <img src="d1.jpeg" alt="Urban Fit">
+    <h3><i class="fas fa-user-check"></i> Urban Fit</h3>
+    <p>Comfortable and sleek. Perfect for everyday wear with breathable fabric and bold simplicity.</p>
+    <button style="margin-top: 1rem; background-color: #1a73e8; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer;">
+      <i class="fas fa-cart-plus"></i> Add to Cart
+    </button>
+  </div>
+  <div class="product">
+    <img src="d2.jpg" alt="Minimal Classic">
+    <h3><i class="fas fa-check-circle"></i> Minimal Classic</h3>
+    <p>A timeless classic with a clean look. Designed to match every mood and outfit.</p>
+    <button style="margin-top: 1rem; background-color: #1a73e8; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer;">
+      <i class="fas fa-cart-plus"></i> Add to Cart
+    </button>
+  </div>
+  <div class="product">
+    <img src="d3.jpeg" alt="Street Edge">
+    <h3><i class="fas fa-fire"></i> Street Edge</h3>
+    <p>Make a statement with this bold design tailored for confidence and comfort.</p>
+    <button style="margin-top: 1rem; background-color: #1a73e8; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer;">
+      <i class="fas fa-cart-plus"></i> Add to Cart
+    </button>
+  </div>
+</section>
+
+
+  <section class="customizer">
+    <h2><i class="fas fa-cogs"></i> Customize Your T-Shirt</h2>
+    <label for="color">Choose T-shirt Color:</label>
+    <select id="color">
+      <option value="white">White</option>
+      <option value="black">Black</option>
+      <option value="blue">Blue</option>
+      <option value="red">Red</option>
+    </select>
+
+    <label for="size">Choose Size:</label>
+    <select id="size">
+      <option value="S">Small</option>
+      <option value="M">Medium</option>
+      <option value="L">Large</option>
+      <option value="XL">X-Large</option>
+    </select>
+
+    <label for="upload">Upload Your Design (PNG, JPG):</label>
+    <input type="file" id="upload" accept="image/png, image/jpeg">
+
+    <button onclick="customizeNow()"><i class="fas fa-magic"></i> Customize Now</button>
+  </section>
+
+  <div class="preview" id="previewBox" style="display: none;">
+    <h3><i class="fas fa-eye"></i> Your Customized T-Shirt</h3>
+    <div class="shirt-box">
+      <img id="shirtBase" src="" alt="T-Shirt Base">
+      <img id="shirtDesign" src="" alt="Design Overlay">
+    </div>
+    <div class="preview-details" id="previewDetails"></div>
+  </div>
+
+  <footer class="footer">
+    &copy; 2025 SmartChoice. All rights reserved.
+  </footer>
+
+  <script>
+    function customizeNow() {
+      const color = document.getElementById('color').value;
+      const size = document.getElementById('size').value;
+      const file = document.getElementById('upload').files[0];
+
+      const preview = document.getElementById('previewBox');
+      const shirtBase = document.getElementById('shirtBase');
+      const shirtDesign = document.getElementById('shirtDesign');
+      const previewDetails = document.getElementById('previewDetails');
+
+      let baseShirt = 'https://dummyimage.com/300x350/' + 
+        (color === 'white' ? 'ffffff' : color === 'black' ? '000000' : color === 'blue' ? '0000ff' : 'ff0000') +
+        '/ffffff&text=' + color.charAt(0).toUpperCase() + color.slice(1) + '+T-Shirt';
+
+      shirtBase.src = baseShirt;
+      previewDetails.innerHTML = `<strong>Color:</strong> ${color.toUpperCase()} | <strong>Size:</strong> ${size}`;
+
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          shirtDesign.src = e.target.result;
+          preview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      } else {
+        shirtDesign.src = '';
+        preview.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
