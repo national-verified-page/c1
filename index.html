@@ -14,7 +14,6 @@
       color: #333;
     }
 
-    /* ✅ Header Flex Layout */
     header {
       background-color: #1a73e8;
       color: white;
@@ -75,7 +74,7 @@
 
     .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.5rem;
       padding: 2rem;
     }
@@ -155,7 +154,8 @@
     }
     .preview .shirt-box {
       position: relative;
-      width: 300px;
+      width: 100%;
+      max-width: 300px;
       height: 350px;
       margin: 0 auto;
     }
@@ -181,13 +181,57 @@
       font-size: 0.9rem;
     }
 
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 1.5rem; }
-      .header-center input { width: 90%; }
+    /* ✅ Responsive Fixes */
+    @media (max-width: 768px) {
+      .header-center input {
+        width: 100%;
+        margin-top: 0.5rem;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .header-left, .header-center, .header-right {
+        flex: 100%;
+        text-align: left;
+        margin-top: 0.5rem;
+      }
+      .customizer {
+        margin: 1rem;
+        padding: 1.2rem;
+      }
+      .preview {
+        margin: 1rem;
+        padding: 1rem;
+      }
+      .preview .shirt-box {
+        height: 280px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.4rem;
+      }
+      .hero p {
+        font-size: 1rem;
+        padding: 0 1rem;
+      }
+      .customizer label, .customizer input, .customizer select, .customizer button {
+        font-size: 0.95rem;
+      }
+      .footer {
+        font-size: 0.8rem;
+      }
     }
   </style>
 </head>
 <body>
+
+<!-- rest of the HTML is already perfect and unchanged, same as you posted -->
+
+</body>
+</html>
 
   <!-- ✅ NEW HEADER -->
   <header>
