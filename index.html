@@ -6,106 +6,145 @@
   <title>SmartChoice</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f0f2f5;
       color: #333;
     }
 
+    /* ✅ Header */
     header {
       background-color: #1a73e8;
       color: white;
-      padding: 1rem 2rem;
-      font-size: 1.5rem;
-      font-weight: bold;
+      padding: 1rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
     }
+
     .header-left {
-      flex: 1;
-      text-align: left;
+      display: flex;
+      align-items: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
     }
+
+    .header-left i {
+      margin-right: 0.5rem;
+    }
+
     .header-center {
-      flex: 2;
-      text-align: center;
+      flex: 1;
+      padding: 0 1rem;
     }
+
     .header-center input {
-      width: 60%;
-      padding: 0.4rem 0.8rem;
+      width: 100%;
+      padding: 0.5rem 1rem;
       border: none;
       border-radius: 20px;
       font-size: 1rem;
     }
+
     .header-right {
-      flex: 1;
-      text-align: right;
+      flex-shrink: 0;
       font-size: 1.2rem;
+      display: flex;
+      align-items: center;
     }
+
     .header-right i {
       margin-left: 1rem;
       cursor: pointer;
       transition: transform 0.2s ease;
     }
+
     .header-right i:hover {
       transform: scale(1.2);
     }
 
+    /* ✅ Hero */
     .hero {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 2rem;
+      padding: 2rem 1rem;
       text-align: center;
     }
+
     .hero h1 {
       font-size: 2rem;
       margin-bottom: 1rem;
     }
+
     .hero p {
       max-width: 600px;
       font-size: 1.1rem;
-      margin-bottom: 2rem;
     }
 
+    /* ✅ Horizontal Scroll Products */
     .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      padding: 2rem;
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding: 2rem 1rem;
+      scroll-snap-type: x mandatory;
     }
+
+    .products::-webkit-scrollbar {
+      display: none;
+    }
+
     .product {
+      min-width: 280px;
       background-color: white;
       border-radius: 12px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       padding: 1rem;
       text-align: center;
       transition: transform 0.2s ease;
+      scroll-snap-align: start;
     }
+
     .product:hover {
       transform: translateY(-5px);
     }
+
     .product img {
-      max-width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+}
+
+
     .product h3 {
       margin: 0.8rem 0 0.5rem;
     }
+
     .product p {
       font-size: 0.95rem;
       color: #666;
     }
 
+    .product button {
+      margin-top: 1rem;
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* ✅ Customizer */
     .customizer {
       background-color: white;
-      margin: 2rem;
+      margin: 2rem 1rem;
       padding: 2rem;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -113,21 +152,25 @@
       margin-left: auto;
       margin-right: auto;
     }
+
     .customizer h2 {
       margin-bottom: 1rem;
       text-align: center;
     }
+
     .customizer label, .customizer input, .customizer select, .customizer button {
       display: block;
       width: 100%;
       margin-bottom: 1rem;
       font-size: 1rem;
     }
+
     .customizer input, .customizer select {
       padding: 0.5rem;
       border-radius: 5px;
       border: 1px solid #ccc;
     }
+
     .customizer button {
       background-color: #1a73e8;
       color: white;
@@ -136,10 +179,12 @@
       border-radius: 5px;
       cursor: pointer;
     }
+
     .customizer button:hover {
       background-color: #1558c0;
     }
 
+    /* ✅ Preview */
     .preview {
       background: #fff;
       margin: 2rem auto;
@@ -149,17 +194,20 @@
       text-align: center;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
+
     .preview h3 {
       margin-bottom: 1rem;
     }
-    .preview .shirt-box {
+
+    .shirt-box {
       position: relative;
       width: 100%;
       max-width: 300px;
       height: 350px;
       margin: 0 auto;
     }
-    .preview .shirt-box img {
+
+    .shirt-box img {
       position: absolute;
       top: 0;
       left: 0;
@@ -167,12 +215,14 @@
       height: 100%;
       object-fit: contain;
     }
+
     .preview-details {
       margin-top: 1rem;
       font-size: 1rem;
       color: #444;
     }
 
+    /* ✅ Footer */
     .footer {
       background-color: #1a73e8;
       color: white;
@@ -181,59 +231,38 @@
       font-size: 0.9rem;
     }
 
-    /* ✅ Responsive Fixes */
+    /* ✅ Media Queries */
     @media (max-width: 768px) {
-      .header-center input {
-        width: 100%;
-        margin-top: 0.5rem;
-      }
       header {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
       }
-      .header-left, .header-center, .header-right {
-        flex: 100%;
-        text-align: left;
+
+      .header-center {
+        padding: 1rem 0;
+      }
+
+      .header-right {
+        justify-content: flex-start;
         margin-top: 0.5rem;
       }
+
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+
       .customizer {
-        margin: 1rem;
         padding: 1.2rem;
       }
-      .preview {
-        margin: 1rem;
-        padding: 1rem;
-      }
-      .preview .shirt-box {
-        height: 280px;
-      }
-    }
 
-    @media (max-width: 480px) {
-      .hero h1 {
-        font-size: 1.4rem;
-      }
-      .hero p {
-        font-size: 1rem;
-        padding: 0 1rem;
-      }
-      .customizer label, .customizer input, .customizer select, .customizer button {
-        font-size: 0.95rem;
-      }
-      .footer {
-        font-size: 0.8rem;
+      .preview {
+        padding: 1rem;
       }
     }
   </style>
 </head>
 <body>
 
-<!-- rest of the HTML is already perfect and unchanged, same as you posted -->
-
-</body>
-</html>
-
-  <!-- ✅ NEW HEADER -->
   <header>
     <div class="header-left">
       <i class="fas fa-tshirt"></i> SmartChoice
@@ -253,32 +282,45 @@
   </section>
 
   <section class="products">
-  <div class="product">
-    <img src="d1.jpeg" alt="Urban Fit">
-    <h3><i class="fas fa-user-check"></i> Urban Fit</h3>
-    <p>Comfortable and sleek. Perfect for everyday wear with breathable fabric and bold simplicity.</p>
-    <button style="margin-top: 1rem; background-color: #1a73e8; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer;">
-      <i class="fas fa-cart-plus"></i> Add to Cart
-    </button>
-  </div>
-  <div class="product">
-    <img src="d2.jpg" alt="Minimal Classic">
-    <h3><i class="fas fa-check-circle"></i> Minimal Classic</h3>
-    <p>A timeless classic with a clean look. Designed to match every mood and outfit.</p>
-    <button style="margin-top: 1rem; background-color: #1a73e8; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer;">
-      <i class="fas fa-cart-plus"></i> Add to Cart
-    </button>
-  </div>
-  <div class="product">
-    <img src="d3.jpeg" alt="Street Edge">
-    <h3><i class="fas fa-fire"></i> Street Edge</h3>
-    <p>Make a statement with this bold design tailored for confidence and comfort.</p>
-    <button style="margin-top: 1rem; background-color: #1a73e8; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer;">
-      <i class="fas fa-cart-plus"></i> Add to Cart
-    </button>
-  </div>
-</section>
+    <div class="product">
+      <img src="d1.jpeg" alt="Urban Fit">
+      <h3><i class="fas fa-user-check"></i> Urban Fit</h3>
+      <p>Comfortable and sleek. Perfect for everyday wear with breathable fabric and bold simplicity.</p>
+      <button><i class="fas fa-cart-plus"></i> Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="d2.jpg" alt="Minimal Classic">
+      <h3><i class="fas fa-check-circle"></i> Minimal Classic</h3>
+      <p>A timeless classic with a clean look. Designed to match every mood and outfit.</p>
+      <button><i class="fas fa-cart-plus"></i> Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="d3.jpeg" alt="Street Edge">
+      <h3><i class="fas fa-fire"></i> Street Edge</h3>
+      <p>Make a statement with this bold design tailored for confidence and comfort.</p>
+      <button><i class="fas fa-cart-plus"></i> Add to Cart</button>
+    </div>
 
+         <div class="product">
+      <img src="d4.jpeg" alt="Bold Spirit">
+      <h3><i class="fas fa-bolt"></i> Bold Spirit</h3>
+      <p>Unleash your energy with this vibrant piece that mixes fashion with confidence.</p>
+      <button><i class="fas fa-cart-plus"></i> Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="d5.jpeg" alt="Vintage Vibe">
+      <h3><i class="fas fa-history"></i> Vintage Vibe</h3>
+      <p>A retro-inspired look for those who love timeless fashion and throwback charm.</p>
+      <button><i class="fas fa-cart-plus"></i> Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="d6.jpeg" alt="Ocean Breeze">
+      <h3><i class="fas fa-water"></i> Ocean Breeze</h3>
+      <p>Feel the calm and coolness of the ocean in this refreshing light-toned tee.</p>
+      <button><i class="fas fa-cart-plus"></i> Add to Cart</button>
+    </div>
+
+  </section>
 
   <section class="customizer">
     <h2><i class="fas fa-cogs"></i> Customize Your T-Shirt</h2>
